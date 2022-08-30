@@ -4,7 +4,7 @@ var x = 1;
 var saveButton = $("<button>🖬</button>");
 
 function createCalendar() {
-    for (var i = 3; i < 23; i++) {
+    for (var i = 6; i < 19; i++) {
 var createBox = $("<div></div>");
 var timeEvent = $("<textarea></textarea>");
 saveButton = $("<button>🖬</button>");
@@ -46,16 +46,10 @@ function checkTime() {
     console.log(currentTime);
     timeEvent.each( function () {
         if (currentTime > i) {
-            $(this).removeClass("future")
-            $(this).removeClass("present")
             $(this).addClass("past")
         } else if (currentTime == i) {
-            $(this).removeClass("past")
-            $(this).removeClass("future")
             $(this).addClass("present")
         } else {
-            $(this).removeClass("present")
-            $(this).removeClass("past")
             $(this).addClass("future")
         }
     })
