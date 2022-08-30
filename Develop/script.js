@@ -10,7 +10,7 @@ var saveButton = $("<button>💾</button>");
 var time = $("<p></p>");
 
 if (i <= 11) {
-    $(".container").append(createBox);
+    $("div.text-center").append(createBox);
     $(createBox).addClass("row");
     time.text(i +"AM");
     $(createBox).append(time);
