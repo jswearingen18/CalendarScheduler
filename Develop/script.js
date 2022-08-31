@@ -15,23 +15,14 @@ var timeEvent = $("<textarea></textarea>");
 var saveButton = $("<button>🖬</button>");
 var time = $("<p></p>");
 // If statement that appends elements and adds class to starter codes CSS
-if (i <= 11) {
+if (i <= 12) {
     $("div.text-center").append(createBox);
     $(createBox).addClass("row");
     $(createBox).attr("id", "hour-"+[i]);
     time.text(i +"AM");
-    $(createBox).append(time);
-    $(time).addClass("hour");
-    $(createBox).append(timeEvent);
-    $(timeEvent).addClass("calendarEvent");
-    $(createBox).append(saveButton);
-    $(saveButton).addClass("saveBtn");
-// Else if statement that appends elements and adds class to starter codes CSS
-} else if (i == 12) {
-    $("div.text-center").append(createBox);
-    $(createBox).addClass("row");
-    $(createBox).attr("id", "hour-"+[i]);
-    time.text(i +"PM");
+        if (i == 12) {
+        time.text(i+"PM")
+    }
     $(createBox).append(time);
     $(time).addClass("hour");
     $(createBox).append(timeEvent);
