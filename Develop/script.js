@@ -1,18 +1,20 @@
+// Start of the function to run the program 
 $(document).ready(function(){
-
-
+// Variable to display time using moments.js 
 var dayOfWeek = moment().format("dddd, " + "LL");
+// Display of variable
 $("#currentDay").text(dayOfWeek);
+// Variable x is used to display appropriate time in hour block
 var x = 1;
-var saveButton = $("<button>🖬</button>");
-
+// Function that actually creates the calendar using a for loop
 function createCalendar() {
     for (var i = 6; i < 19; i++) {
+// Variables that will allow me to append and add class through the if else statements
 var createBox = $("<div></div>");
 var timeEvent = $("<textarea></textarea>");
-saveButton = $("<button>🖬</button>");
+var saveButton = $("<button>🖬</button>");
 var time = $("<p></p>");
-
+// If statement that appends elements and adds class to starter codes CSS
 if (i <= 11) {
     $("div.text-center").append(createBox);
     $(createBox).addClass("row");
@@ -24,7 +26,7 @@ if (i <= 11) {
     $(timeEvent).addClass("calendarEvent");
     $(createBox).append(saveButton);
     $(saveButton).addClass("saveBtn");
-   
+// Else if statement that appends elements and adds class to starter codes CSS
 } else if (i == 12) {
     $("div.text-center").append(createBox);
     $(createBox).addClass("row");
@@ -36,6 +38,8 @@ if (i <= 11) {
     $(timeEvent).addClass("calendarEvent");
     $(createBox).append(saveButton);
     $(saveButton).addClass("saveBtn");
+// Else statement that appends elements and adds class to starter codes CSS
+// Variable x is used here to ensure time displays appropriately
 } else {
     $("div.text-center").append(createBox);
     $(createBox).addClass("row");
@@ -47,9 +51,9 @@ if (i <= 11) {
     $(timeEvent).addClass("calendarEvent");
     $(createBox).append(saveButton);
     $(saveButton).addClass("saveBtn");
-    x++;
-   
+    x++;  
 }
+// Function that checks for time to check to add past, present, or future class
 function checkTime() {
     var currentTime = moment().format("HH");
     timeEvent.each( function () {
@@ -66,6 +70,7 @@ checkTime();
     }
 }
 createCalendar();
+// Click function so that the textarea saves to and gets from local storage
 $(".saveBtn").on("click", function() {
     var value = $(this).siblings('.calendarEvent').val();
     var timeEl = $(this).parent().attr('id');
